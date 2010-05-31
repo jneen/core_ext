@@ -1,4 +1,8 @@
 class String
+  def match?(regex)
+    self.match(regex) ? true : false
+  end
+
   def squish
     self.strip.gsub(/\s+/,' ')
   end
@@ -7,7 +11,7 @@ class String
     self.split($/)
   end
 
-  def map_lines(&blk)
-    self.lines.map(&blk).join($/)
+  def map_parts(delim=$/, &blk)
+    self.split(delim).map(&blk).join(delim)
   end
 end
