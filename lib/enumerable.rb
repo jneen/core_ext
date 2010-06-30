@@ -24,4 +24,8 @@ module Enumerable
   def sum
     self.inject(&:+)
   end
+
+  def product
+    self.inject(&:*)
+  end
 end
