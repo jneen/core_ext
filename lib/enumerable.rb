@@ -20,4 +20,8 @@ module Enumerable
   def hashmap
     map { [self, yield(self)] }.to_h
   end
+
+  def sum
+    self.inject(&:+)
+  end
 end
