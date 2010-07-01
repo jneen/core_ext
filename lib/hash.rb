@@ -43,4 +43,18 @@ class Hash
     end
     self
   end
+
+  def to_proc
+    raise ArgumentError, <<-msg.squish unless self.size == 1
+      Only singleton arrays work with to_proc.
+    msg
+    key = self.keys.first
+    val = self[key]
+    val = [val] unless val.is_a? Array
+
+    proc do |*args|
+      target = args.shift
+      key.to_proc.call(target, *val)
+    end
+  end
 end
