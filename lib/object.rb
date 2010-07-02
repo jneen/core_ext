@@ -15,4 +15,7 @@ class Object
     instance_variable_set(ivar, nil)
   end
 
+  def send_to(obj, method, *args)
+    obj.send(method, self, *args)
+  end
 end
