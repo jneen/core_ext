@@ -31,7 +31,7 @@ class Hash
 
   def map_values!
     self.each do |k,v|
-      self[k] = v
+      self[k] = yield v
     end
     self
   end
