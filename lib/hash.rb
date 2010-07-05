@@ -29,11 +29,18 @@ class Hash
     self
   end
 
+  def map_keys(&blk)
+    self.dup.map_keys!(&blk)
+  end
+
   def map_values!
     self.each do |k,v|
       self[k] = yield v
     end
     self
+  end
+  def map_values(&blk)
+    self.dup.map_values!(&blk)
   end
 
   def map!
