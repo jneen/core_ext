@@ -18,4 +18,9 @@ class Object
   def send_to(obj, method, *args)
     obj.send(method, self, *args)
   end
+
+  def truthy?
+    !!self
+  end
+  alias to_bool truthy?
 end
